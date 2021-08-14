@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace MyApplication
 {
@@ -8,28 +9,35 @@ namespace MyApplication
     //2- Find largest factor.
     static void Main(string[] args)
     {
+      ArrayList primeList = new ArrayList();
       int maxVal = 30;
-      int [] listVals = new int[maxVal];
-      //Populate array.
+      bool [] listVals = new bool [maxVal];
+
+      //Populate array, all true.
       for (var i = 0; i < listVals.Length; i ++)
       {
-        listVals[i] = i;
+        listVals[i] = true;
       }
-      var root = Math.Sqrt(maxVal);
 
-      for (var j = 2; j < root; j ++)
+  
+      //Identify and mark false all non-prime elements
+      for (var j = 2; j < Math.Sqrt(maxVal); j ++)
       {
         for (var k = j * j; k < listVals.Length; k += j)
         {
-        listVals[k] = 0;
+        listVals[k] = false;
         }
-
+      }
+      //Add all prime values to an ArrayList.
+      for (var i = 2; i < listVals.Length; i ++)
+      {
+        if (listVals[i]) 
+        {
+          primeList.Add(i);
+        }
       }
 
-
-      Console.WriteLine(string.Join("\n", listVals));
-      //Filter for non zero values and return
-
+     
       
     }
   }
