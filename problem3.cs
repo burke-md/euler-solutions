@@ -1,44 +1,44 @@
 ﻿using System;
-using System.Collections;
 
 namespace MyApplication
 {
   class Program
   {
-    //1 - Create an array of prime numbers (Sieve of Eratosthennes)
-    //2- Find largest factor.
     static void Main(string[] args)
     {
-      ArrayList primeList = new ArrayList();
-      int maxVal = 30;
-      bool [] listVals = new bool [maxVal];
+      const long findPrimeFactorOf = 600851475143;
 
-      //Populate array, all true.
-      for (var i = 0; i < listVals.Length; i ++)
-      {
-        listVals[i] = true;
-      }
+      long largerFactor = 0;
+      long [] factors = new long[2];
 
-  
-      //Identify and mark false all non-prime elements
-      for (var j = 2; j < Math.Sqrt(maxVal); j ++)
+      //Iterate from 2 through Sqrt of maxium value(findPrimeFactorOf).
+      for (var i = 2; i * i < findPrimeFactorOf; i ++)
       {
-        for (var k = j * j; k < listVals.Length; k += j)
+        if (findPrimeFactorOf % i == 0)
         {
-        listVals[k] = false;
-        }
-      }
-      //Add all prime values to an ArrayList.
-      for (var i = 2; i < listVals.Length; i ++)
-      {
-        if (listVals[i]) 
-        {
-          primeList.Add(i);
-        }
-      }
+          factors[0] = i;
+          factors[1] = findPrimeFactorOf % i;
 
-     
-      
+          for (int k = 0; k < 2; k ++)
+          {
+            bool isPrime = true;
+            for (long j = 2; j * j < factors[k]; j ++)
+            {
+              if (factors[k] % j == 0)
+              {
+                isPrime = false;
+                break;
+              }
+            }
+
+            if (isPrime && factors[k] > largerFactor)
+            {
+              largerFactor = factors[k];
+              Console.WriteLine(largerFactor);
+            }
+          }
+        }
+      }      
     }
   }
 }
