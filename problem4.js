@@ -4,13 +4,29 @@ const palindromeCheck = (number) => {
   for (let i = 0; i < numStr.length / 2; i++) {
     const rightIndex = numStr.length - (i + 1);
     const leftIndex = i;
-    if(numStr.charAt(leftIndex) !== numStr.charAt(rightIndex))return false
+    if (numStr.charAt(leftIndex) !== numStr.charAt(rightIndex)) return false;
   }
 
   return true;
 };
 
-let x = 999;
-let y = 999;
+const largestPal = () => {
+  let x = 999;
+  let y = 999;
 
-console.log(palindromeCheck(9991));
+  while (x > 0 && y > 0) {
+    let product = x * y;
+    if (palindromeCheck(product)) {
+      console.log("x", x, "y", y, product);
+      return;
+    }
+    /* If product is not palindrome, decrement x
+    UNLESS x === 1. Decrememnt y and reset x */
+    if (x !== 1) x--;
+    if (x === 1) {
+      x = 999;
+      y--;
+    }
+  }
+};
+largestPal();
