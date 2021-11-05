@@ -1,14 +1,29 @@
-const palindromeCheck = (number) => {
-  numStr = number.toString();
+// const palindromeCheck = (number) => {
+//   numStr = number.toString();
 
-  for (let i = 0; i < numStr.length / 2; i++) {
-    const rightIndex = numStr.length - (i + 1);
-    const leftIndex = i;
-    if (numStr.charAt(leftIndex) !== numStr.charAt(rightIndex)) return false;
+//   for (let i = 0; i < numStr.length / 2; i++) {
+//     const rightIndex = numStr.length - (i + 1);
+//     const leftIndex = i;
+//     if (numStr.charAt(leftIndex) !== numStr.charAt(rightIndex)) return false;
+//   }
+
+//   return true;
+// };
+
+const reverseString = (str) => {
+  let reversedStr = '';
+  for (let charIdx = str.length - 1; charIdx >= 0; charIdx--) {
+    reversedStr += str[charIdx];
   }
-
-  return true;
+  // for (var i = str.length - 1, o = ""; i >= 0; o += str[i--]) {}
+  // console.log(`reversed str input: ${str}`);
+  // console.log(`reversed str output: ${o}`)
+  // return o;
+  // console.log(`reversed str output: ${reversedStr}`);
+  return reversedStr;
 };
+
+
 
 const largestPal = () => {
   // let x = 999;
@@ -30,11 +45,6 @@ const largestPal = () => {
   // }
 
   var palindromes = [];
-
-  function reverseString(str) {
-    for (var i = str.length - 1, o = ""; i >= 0; o += str[i--]) {}
-    return o;
-  }
 
   for (i = 999; i > 99; i--) {
     for (j = 999; j > 99; j--) {
