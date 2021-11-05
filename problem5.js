@@ -4,9 +4,7 @@ const findMin = (target) => {
   let count = 1;
   let min = 1;
   while (count < target) {
-    //brute force increment to 20
-    //Optimize in steps pattern after
-    if (target % count !== 0) min *= count;
+    if (target % count !== 0) min ++;
 
     count++;
   }
