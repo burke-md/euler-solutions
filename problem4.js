@@ -8,19 +8,21 @@ const reverseString = (str) => {
 
 const largestPal = () => {
   var palindromes = [];
-
   for (i = 999; i > 99; i--) {
     for (j = 999; j > 99; j--) {
       strProduct = (i * j).toString();
+      //Check if palindromic, add to list
       if (strProduct == reverseString(strProduct)) {
         palindromes.push(i * j);
       }
     }
   }
+  //Order list big -> small
   palindromes.sort((a, b) => {
     return b - a;
   });
+  const largestVal = palindromes[0];
 
-  console.log(palindromes[0]);
+  return largestVal;
 };
-largestPal();
+console.log(largestPal());
