@@ -1,14 +1,21 @@
 //Smallest positive number that can be divided by each number upto than 20
 
 const findMin = (target) => {
-  let count = 1;
-  let min = 1;
+  let count = 0;
+  let num = 1;
   while (count < target) {
-    if (target % count !== 0) min ++;
-
-    count++;
+    for (let i = 1; i <= target; i++) {
+      num % i === 0 ? count++ : (count = 0);
+      break;
+    }
+    if (count === target) {
+      console.log(num);
+      break;
+    } else {
+      num++;
+    }
   }
-  return min;
+  return num;
 };
 
 console.log(findMin(20));
