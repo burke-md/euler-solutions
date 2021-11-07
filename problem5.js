@@ -12,12 +12,9 @@ const findMin = (target) => {
         break;
       }
     }
-    if (count === target) {
-      console.log(num);
-      break;
-    } else {
+    if (count !== target) {
       num++;
-    }
+    } 
   }
   return num;
 };
