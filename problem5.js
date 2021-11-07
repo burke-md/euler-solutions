@@ -5,8 +5,12 @@ const findMin = (target) => {
   let num = 1;
   while (count < target) {
     for (let i = 1; i <= target; i++) {
-      num % i === 0 ? count++ : (count = 0);
-      break;
+      if (num % i === 0) {
+        count++;
+      } else {
+        count = 0;
+        break;
+      }
     }
     if (count === target) {
       console.log(num);
