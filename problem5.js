@@ -6,15 +6,15 @@ const findMin = (target) => {
   while (count < target) {
     for (let i = 1; i <= target; i++) {
       if (num % i === 0) {
-        count++;
+        count ++;
       } else {
         count = 0;
         break;
       }
     }
     if (count !== target) {
-      num++;
-    } 
+      num ++;
+    }
   }
   return num;
 };
