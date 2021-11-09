@@ -5,3 +5,19 @@
   What is the difference if we are to use the first 100 natural
   numbers in the above example?
  */
+
+const target = 10;
+let tracker = 1;
+let sumOfSqrs = 0;
+let sqrOfSums = 0;
+
+while (tracker < target){
+  sqrOfSums += tracker;
+  sumOfSqrs += tracker * tracker;
+  tracker ++;
+}
+
+//Square the now total sum of all natural numbers
+sqrOfSums = sqrOfSums * sqrOfSums;
+
+console.log(`difference: ${sqrOfSums - sumOfSqrs}`)
