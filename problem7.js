@@ -8,9 +8,10 @@ const findPrime = (max) => {
   let i = 3;
   let j = 2;
   while (primes.length < max) {
-    while (i % j !== 0){
-      j++
-      if(j === i){
+    while (i % j !== 0) {
+      j++;
+      //Have looped w/o being able to divide -> found a prime number
+      if (j === i) {
         primes.push(i);
         break;
       }
@@ -19,7 +20,7 @@ const findPrime = (max) => {
     i++;
     j = 2;
   }
-  return primes;
+  return primes[max - 1];
 };
 
-console.log(findPrime(10));
+console.log(findPrime(10001));
