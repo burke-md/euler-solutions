@@ -6,19 +6,20 @@
   numbers in the above example?
  */
 
-const target = 100;
-let tracker = 1;
-let sumOfSqrs = 0;
-let sqrOfSums = 0;
+const sumSqrDiff = (target) => {
+  let tracker = 1;
+  let sumOfSqrs = 0;
+  let sqrOfSums = 0;
 
-while (tracker <= target){
-  sqrOfSums += tracker;
-  sumOfSqrs += tracker * tracker;
-  tracker ++;
-}
+  while (tracker <= target) {
+    sqrOfSums += tracker;
+    sumOfSqrs += tracker * tracker;
+    tracker++;
+  }
 
-//Square the now total sum of all natural numbers
-sqrOfSums = sqrOfSums * sqrOfSums;
-console.log(`sum of squares: ${sumOfSqrs}`);
-console.log(`square of sum: ${sqrOfSums}`);
-console.log(`difference: ${sqrOfSums - sumOfSqrs}`)
+  //Square the now total sum of all natural numbers
+  sqrOfSums = sqrOfSums * sqrOfSums;
+  return sqrOfSums - sumOfSqrs;
+};
+
+console.log(sumSqrDiff(100));
