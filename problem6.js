@@ -11,7 +11,7 @@ let tracker = 1;
 let sumOfSqrs = 0;
 let sqrOfSums = 0;
 
-while (tracker < target){
+while (tracker <= target){
   sqrOfSums += tracker;
   sumOfSqrs += tracker * tracker;
   tracker ++;
