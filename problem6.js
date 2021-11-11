@@ -6,7 +6,7 @@
   numbers in the above example?
  */
 
-const target = 10;
+const target = 100;
 let tracker = 1;
 let sumOfSqrs = 0;
 let sqrOfSums = 0;
