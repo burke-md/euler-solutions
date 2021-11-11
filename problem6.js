@@ -19,5 +19,6 @@ while (tracker < target){
 
 //Square the now total sum of all natural numbers
 sqrOfSums = sqrOfSums * sqrOfSums;
-
+console.log(`sum of squares: ${sumOfSqrs}`);
+console.log(`square of sum: ${sqrOfSums}`);
 console.log(`difference: ${sqrOfSums - sumOfSqrs}`)
