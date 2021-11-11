@@ -5,11 +5,21 @@ What is the 10 001st prime number?
 
 const findPrime = (max) => {
   let primes = [2];
-
-  while (primes.length > max) {
-
+  let i = 3;
+  let j = 2;
+  while (primes.length < max) {
+    while (i % j !== 0){
+      j++
+      if(j === i){
+        primes.push(i);
+        break;
+      }
+    }
+    //Increment i, reset j.
+    i++;
+    j = 2;
   }
-  return primes[max - 1];
+  return primes;
 };
 
-console.log(findPrime(1))
+console.log(findPrime(10));
