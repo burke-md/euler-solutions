@@ -13,16 +13,22 @@ const listProduct = (list) =>{
 }
 
 const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
-  let product = 0;
-  //Step 1: Define and populate list of first (numberOfDigits) numbers.
-  let list = []
-  //Zero index counter to note white index of numberToSearch we are at.
-  let tracker = 0;
+  //Step1: Split nuber into array w/ single digit elements.
   //Step2: Sort list
-  //Step3: Iterate through numberToSearch, insert digit into list if >.
+  //Step3: Call helper function to find product of items (numberOfDigits).
+  let product = 0;
+    /*
+    //BRUTE FORCE METHOD
+    //Step 1: Define and populate list of first (numberOfDigits) numbers.
+    let list = []
+    //Zero index counter to note white index of numberToSearch we are at.
+    let tracker = 0;
+    //Step2: Sort list
+    //Step3: Iterate through numberToSearch, insert digit into list if >.
 
-  //Step4: Call helper function to find product of items
-  product = listProduct(list);
+    //Step4: Call helper function to find product of items
+    product = listProduct(list);
+    */
   return product;
 };
 
