@@ -14,12 +14,14 @@ const listProduct = (list) =>{
 
 const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
   let product = 0;
-  //Define and populate list of first (numberOfDigits) numbers.
-  let list = [2, 2, 2]
-  //Sort list
-  //Iterate through list, insert digit into
+  //Step 1: Define and populate list of first (numberOfDigits) numbers.
+  let list = []
+  //Zero index counter to note white index of numberToSearch we are at.
+  let tracker = 0;
+  //Step2: Sort list
+  //Step3: Iterate through numberToSearch, insert digit into list if >.
 
-  //Helper function to find product of items
+  //Step4: Call helper function to find product of items
   product = listProduct(list);
   return product;
 };
