@@ -13,7 +13,7 @@ const listProduct = (list) => {
 };
 
 const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
-  let product = 0;
+  let maxProduct = 0;
   let largestSet = [];
   //Step1: Split nuber into array w/ single digit elements.
   const numArr = numberToSearch.split("");
@@ -23,12 +23,29 @@ const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
   let rightIdx = numberToSearch.length - 1 - numberOfDigits;
 
   while (!midIdxReached) {
-    const leftSet = [];
-    const rightSet = [];
+    const leftWindow = {
+      list: [],
+      listProduct: 0,
+    }
+    const rightWindow = {
+      list: [],
+      listProduct: 0,
+    };
+//Write helper function to resolve this
+    leftWindow.list = []
+    rightWindow.list = []
+
+    leftWindow.listProduct = listProduct(leftWindow.list);
+    rightWindow.listProduct = listProduct(rightWindow.list);
+
 
     //Compare left/right set w/ current max
-    //Update if needed
-    //Update product
+    if(leftWindow.listProduct > maxProduct || rightWindow.listProduct > maxProduct) {
+      //Update if needed
+      maxProduct = Math.max(leftWindow.listProduct, rightWindow.listProduct);
+      //Update product
+
+    }
 
     //Increment/Decrement pointers
     leftIdx++;
