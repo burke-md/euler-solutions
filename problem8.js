@@ -12,48 +12,38 @@ const listProduct = (list) => {
   return total;
 };
 
+const populateWindow = () => {
+  let window = [];
+
+  return window;
+};
+
 const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
   let maxProduct = 0;
-  let largestSet = [];
+  let maxSet = [];
   //Step1: Split nuber into array w/ single digit elements.
   const numArr = numberToSearch.split("");
-  const midIdx = Math.floor(numberToSearch.length);
-  let midIdxReached = false;
+
   let leftIdx = numberOfDigits - 1;
-  let rightIdx = numberToSearch.length - 1 - numberOfDigits;
 
   while (!midIdxReached) {
     const leftWindow = {
       list: [],
       listProduct: 0,
-    }
-    const rightWindow = {
-      list: [],
-      listProduct: 0,
     };
-//Write helper function to resolve this
-    leftWindow.list = []
-    rightWindow.list = []
+
+    leftWindow.list = populateWindow();
 
     leftWindow.listProduct = listProduct(leftWindow.list);
-    rightWindow.listProduct = listProduct(rightWindow.list);
 
-
-    //Compare left/right set w/ current max
-    if(leftWindow.listProduct > maxProduct || rightWindow.listProduct > maxProduct) {
-      //Update if needed
-      maxProduct = Math.max(leftWindow.listProduct, rightWindow.listProduct);
+    //Compare left list w/ current max
+    if (leftWindow.listProduct > maxProduct) {
+      maxProduct = leftWindow.listProduct;
       //Update product
-
     }
 
     //Increment/Decrement pointers
     leftIdx++;
-    rightIdx--;
-    //Check if mid point has been reached. End search if true.
-    if (leftIdx === midIdx || rightIdx === midIdx) {
-      midIdxReached = true;
-    }
   }
 
   return product;
