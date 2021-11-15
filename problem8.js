@@ -12,15 +12,17 @@ const listProduct = (list) => {
   return total;
 };
 
-const populateWindow = () => {
+const populateWindow = (numberOfDigits, leftIdx, number) => {
   let window = [];
-
+  for(let i = leftIdx; i < leftIdx + numberOfDigits; i++){
+    window.push(number[i])
+  }
   return window;
 };
 
 const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
   let maxProduct = 0;
-  let maxSet = [];
+  let maxList = [];
   //Step1: Split nuber into array w/ single digit elements.
   const numArr = numberToSearch.split("");
 
@@ -32,14 +34,15 @@ const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
       listProduct: 0,
     };
 
-    leftWindow.list = populateWindow();
+    leftWindow.list = populateWindow(numberOfDigits,leftIdx, numberToSearch);
 
     leftWindow.listProduct = listProduct(leftWindow.list);
 
     //Compare left list w/ current max
     if (leftWindow.listProduct > maxProduct) {
-      maxProduct = leftWindow.listProduct;
       //Update product
+      maxProduct = leftWindow.listProduct;
+      maxList = leftWindow.list;
     }
 
     //Increment/Decrement pointers
