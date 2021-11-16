@@ -14,40 +14,32 @@ const listProduct = (list) => {
 
 const populateWindow = (numberOfDigits, leftIdx, number) => {
   let window = [];
-  for(let i = leftIdx; i < leftIdx + numberOfDigits; i++){
-    window.push(number[i])
+  for (let i = leftIdx; i < leftIdx + numberOfDigits; i++) {
+    window.push(number[i]);
   }
   return window;
 };
 
 const greatestAdjacentProduct = (numberOfAdjDigits, numberToSearch) => {
   let maxProduct = 0;
-  const numArr = numberToSearch.split("");
-
-  //Increment until equal to length of number - numberOfAdjDigits
   let leftIdx = 0;
-
+  const numArr = numberToSearch.split("");
   const leftWindow = {
     list: [],
     listProduct: 0,
   };
+
   while (leftIdx <= numArr.length - numberOfAdjDigits) {
-
-    leftWindow.list = populateWindow(numberOfAdjDigits,leftIdx, numArr);
-
+    leftWindow.list = populateWindow(numberOfAdjDigits, leftIdx, numArr);
     leftWindow.listProduct = listProduct(leftWindow.list);
 
-    //Compare left list w/ current max
+    //Compare list product w/ current max product & update if needed.
     if (leftWindow.listProduct > maxProduct) {
-      //Update product
       maxProduct = leftWindow.listProduct;
-    
     }
-
-    //Increment/Decrement pointers
+    //Increment pointer.
     leftIdx++;
   }
-    console.log(leftWindow.list)
   return maxProduct;
 };
 
