@@ -27,13 +27,13 @@ const greatestAdjacentProduct = (numberOfAdjDigits, numberToSearch) => {
   //Increment until equal to length of number - numberOfAdjDigits
   let leftIdx = 0;
 
-  // while (!midIdxReached) {
-    const leftWindow = {
-      list: [],
-      listProduct: 0,
-    };
+  const leftWindow = {
+    list: [],
+    listProduct: 0,
+  };
+  while (leftIdx <= numArr.length - numberOfAdjDigits) {
 
-    leftWindow.list = populateWindow(numberOfAdjDigits,leftIdx, numberToSearch);
+    leftWindow.list = populateWindow(numberOfAdjDigits,leftIdx, numArr);
 
     leftWindow.listProduct = listProduct(leftWindow.list);
 
@@ -41,14 +41,14 @@ const greatestAdjacentProduct = (numberOfAdjDigits, numberToSearch) => {
     if (leftWindow.listProduct > maxProduct) {
       //Update product
       maxProduct = leftWindow.listProduct;
-      maxList = leftWindow.list;
+    
     }
 
     //Increment/Decrement pointers
     leftIdx++;
-  // }
-
-  return product;
+  }
+    console.log(leftWindow.list)
+  return maxProduct;
 };
 
 console.log(greatestAdjacentProduct(13, num));
