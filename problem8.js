@@ -26,9 +26,9 @@ const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
   //Step1: Split nuber into array w/ single digit elements.
   const numArr = numberToSearch.split("");
 
-  let leftIdx = numberOfDigits - 1;
+  let leftIdx = 0;
 
-  while (!midIdxReached) {
+  // while (!midIdxReached) {
     const leftWindow = {
       list: [],
       listProduct: 0,
@@ -47,7 +47,7 @@ const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
 
     //Increment/Decrement pointers
     leftIdx++;
-  }
+  // }
 
   return product;
 };
