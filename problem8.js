@@ -20,12 +20,11 @@ const populateWindow = (numberOfDigits, leftIdx, number) => {
   return window;
 };
 
-const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
+const greatestAdjacentProduct = (numberOfAdjDigits, numberToSearch) => {
   let maxProduct = 0;
-  let maxList = [];
-  //Step1: Split nuber into array w/ single digit elements.
   const numArr = numberToSearch.split("");
 
+  //Increment until equal to length of number - numberOfAdjDigits
   let leftIdx = 0;
 
   // while (!midIdxReached) {
@@ -34,7 +33,7 @@ const greatestAdjacentProduct = (numberOfDigits, numberToSearch) => {
       listProduct: 0,
     };
 
-    leftWindow.list = populateWindow(numberOfDigits,leftIdx, numberToSearch);
+    leftWindow.list = populateWindow(numberOfAdjDigits,leftIdx, numberToSearch);
 
     leftWindow.listProduct = listProduct(leftWindow.list);
 
